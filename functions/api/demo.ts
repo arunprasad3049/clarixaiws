@@ -1,4 +1,4 @@
-export const onRequestPost: PagesFunction = async ({ request }) => {
+export const onRequestPost = async ({ request }: any) => {
   try {
     const body = await request.json().catch(() => ({} as any));
     const fileName = (body?.fileName || "sample.pdf") as string;
@@ -25,7 +25,7 @@ export const onRequestPost: PagesFunction = async ({ request }) => {
         headers: {
           "content-type": "application/json",
           "cache-control": "no-store"
-        }
+        }  
       }
     );
   } catch (e) {
